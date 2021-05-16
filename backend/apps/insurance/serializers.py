@@ -67,3 +67,4 @@ class RiskSerializer(serializers.ModelSerializer):
                 FieldOption.objects.create(
                     **option
                 )
+        return risk
