@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from rest_framework.generics import RetrieveAPIView, ListCreateAPIView
 
-# Create your views here.
+from .models import Risk
+from .serializers import RiskSerializer
+
+
+class RiskListViewSet(ListCreateAPIView):
+    serializer_class = RiskSerializer
+    queryset = Risk.objects.all()
+
+
+class RiskDetailViewSet(RetrieveAPIView):
+    serializer_class = RiskSerializer
+    queryset = Risk.objects.all()
