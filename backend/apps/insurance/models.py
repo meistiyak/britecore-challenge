@@ -22,6 +22,7 @@ class Risk(models.Model):
 class RiskField(models.Model):
     risk = models.ForeignKey(
         to=Risk,
+        related_name='fields',
         on_delete=models.CASCADE
     )
     label = models.CharField(
@@ -44,6 +45,7 @@ class RiskField(models.Model):
 class FieldOption(models.Model):
     field = models.ForeignKey(
         to=RiskField,
+        related_name='options',
         on_delete=models.CASCADE
     )
     name = models.CharField(
